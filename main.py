@@ -20,9 +20,8 @@ def CosineScheduler(step:int,max_step:int,base_lr:float,final_lr:float):
     lr=final_lr+(base_lr-final_lr)*(1+math.cos(math.pi*step/max_step))/2
     return lr
 class GDLinearRegression():
-    def __init__(self,base_lr:float=3e-1,final_lr:float=1e-3,max_iter:int=100,verbose:int=1,cosine:bool=False):
+    def __init__(self,base_lr:float=3e-1,final_lr:float=1e-3,max_iter:int=100,verbose:int=1,cosine:bool=True):
         assert verbose==0 or verbose==1, "verbose must only 0 or 1"
-        assert final_lr<base_lr, "Final LR must be smaller than Base LR"
         self.base_lr=base_lr
         self.final_lr=final_lr
         self.max_iter=max_iter
